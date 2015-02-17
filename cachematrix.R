@@ -1,8 +1,13 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Set of functions to solve the inverse of a matrix. 
+## They also save the result (cache) to make it more efficient 
+## in case that we need to repeat this operation several times
 
-## Write a short comment describing this function
-
+################################################################
+## makeCacheMatrix: Builds a cacheMatrix from an existing matrix
+## INPUT:
+##    x - An invertable matrix
+## OUTPUT: 
+################################################################
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
@@ -17,9 +22,15 @@ makeCacheMatrix <- function(x = matrix()) {
        getinv = getinv)
 }
 
-
-## Write a short comment describing this function
-
+################################################################
+## cacheSolve: Computes the inverse of a cacheMatrix.
+##  If the inverse had already been calculated it returns the
+##  cached inverse
+## INPUT:
+##    x - A cacheMatrix
+## OUTPUT:
+##    The inverse of the cacheMatrix 'x'
+################################################################
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   inv <- x$getinv()
